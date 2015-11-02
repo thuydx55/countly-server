@@ -111,6 +111,9 @@ var countlyEvents = {},
             }
 
 			plugins.dispatch("/i/events", {params:params, currEvent:currEvent});
+            common.db.collection("rawEvents").insert(currEvent, function(err, result) {
+            //  console.log("Raw: " + err + " " + result);
+            });
 	    	    
             shortEventName = common.fixEventKey(currEvent.key);
 
