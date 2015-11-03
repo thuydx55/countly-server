@@ -11,3 +11,6 @@ frontend/express/public/stylesheets/*.min.css
 plugins/plugins.json
 **/.DS_Store
 **/node_modules
+
+*.log
+*.backup
