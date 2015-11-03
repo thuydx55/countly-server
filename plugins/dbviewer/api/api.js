@@ -38,7 +38,7 @@ var plugin = {},
 				if(dbs[params.qstring.dbs]){
 					var cursor = dbs[params.qstring.dbs].collection(params.qstring.collection).find(filter);
 					cursor.count(function (err, total) {
-						cursor.skip(skip).limit(limit).toArray(function(err, results){
+						cursor.sort({ timestamp: -1 }).skip(skip).limit(limit).toArray(function(err, results){
 							if(err) {
 								console.error(err);
 							}
@@ -69,6 +69,7 @@ var plugin = {},
 									db.collections.push(col.name);
 								}
 							}
+
 							db.collections.sort();
 							callback(err, db);
 						});
