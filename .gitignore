@@ -12,5 +12,6 @@ plugins/plugins.json
 frontend/express/public/sdk/
 **/.DS_Store
 **/node_modules
+
 *.log
 *.backup
