@@ -111,7 +111,9 @@ var countlyEvents = {},
             }
 
 			plugins.dispatch("/i/events", {params:params, currEvent:currEvent});
-            common.db.collection("rawEvents_app_" + params.qstring.app_key).insert(currEvent, function(err, result) {
+            var rawEvent = currEvent;
+            rawEvent.app_user_id = params.app_user_id;
+            common.db.collection("rawEvents_app_" + params.app_id).insert(currEvent, function(err, result) {
             //  console.log("Raw: " + err + " " + result);
             });
 	    	    
